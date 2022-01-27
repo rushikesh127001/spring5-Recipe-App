@@ -25,6 +25,9 @@ public class Recipe {
     @OneToOne(cascade = CascadeType.ALL)
     private Notes notes;
 
+    @Enumerated(value = EnumType.STRING)//oridnal sotres as 1,2,3...problematic in changes
+    private Difficulty difficulty;
+
     public Long getId() {
         return id;
     }
