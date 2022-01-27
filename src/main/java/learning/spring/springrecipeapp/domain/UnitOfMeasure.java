@@ -1,20 +1,17 @@
 package learning.spring.springrecipeapp.domain;
 
-import javax.persistence.*;
-import java.math.BigDecimal;
+import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
+import javax.persistence.Id;
 
 @Entity
-public class Ingredient {
+public class UnitOfMeasure {
+
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
     private String description;
-    private BigDecimal amount;
-    @ManyToOne
-    private Recipe recipe;
-
-    @OneToOne(cascade = CascadeType.PERSIST)
-    private UnitOfMeasure uom;
 
     public Long getId() {
         return id;
@@ -30,13 +27,5 @@ public class Ingredient {
 
     public void setDescription(String description) {
         this.description = description;
-    }
-
-    public BigDecimal getAmount() {
-        return amount;
-    }
-
-    public void setAmount(BigDecimal amount) {
-        this.amount = amount;
     }
 }
